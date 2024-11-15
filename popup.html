@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nice note taker ^-^</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      width: 400px;
+      min-height: 500px;
+      overflow-x: hidden;
+    }
+    .note-transition {
+      transition: all 0.3s ease;
+    }
+    .note-item:hover {
+      transform: translateX(5px);
+    }
+	
+  </style>
+</head>
+<body class="bg-gray-50">
+  <div class="p-4">
+    <div class="flex justify-between items-center mb-4">
+      <h1 class="text-2xl font-bold text-gray-800">Nice note taker ^-^</h1>
+      <button id="openDashboard" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+        Dashboard
+      </button>
+    </div>
+    <div class="mb-4">
+      <textarea id="noteInput" 
+                class="w-full p-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                placeholder="Write your note here..."
+                rows="4"></textarea>
+      <input type="text" 
+             id="websiteInput" 
+             class="w-full mt-2 p-2 border rounded-lg"
+             placeholder="Website URL">
+      <button id="saveNote" 
+              class="mt-2 w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition-colors">
+        Save Note
+      </button>
+    </div>
+    <div class="relative mb-4">
+      <input type="text" 
+             id="searchInput"
+             class="w-full p-2 pl-8 border rounded-lg"
+             placeholder="Search notes...">
+      <svg class="w-4 h-4 absolute left-2 top-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+      </svg>
+    </div>
+    <div class="flex gap-2 mb-4">
+      <button id="exportNotes" class="flex-1 bg-gray-500 text-white py-2 rounded-lg hover:bg-gray-600">
+        Export
+      </button>
+      <button id="importNotes" class="flex-1 bg-gray-500 text-white py-2 rounded-lg hover:bg-gray-600">
+        Import
+      </button>
+      <input type="file" id="fileInput" class="hidden" accept=".json">
+    </div>
+    <div id="notesList" class="space-y-3"></div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
